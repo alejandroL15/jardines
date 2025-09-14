@@ -31,8 +31,6 @@ COPY docker/supervisord.conf /etc/supervisord.conf
 COPY . .
 COPY --from=vendor /app/vendor/ ./vendor/
 
-# --- CORRECCIÓN FINAL Y DEFINITIVA ---
-
 # 1. Establecer permisos amplios ANTES de ejecutar Artisan para evitar fallos de escritura.
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
@@ -49,9 +47,13 @@ RUN php artisan view:cache
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
+# --- AÑADIR SCRIPT DE ARRANQUE ---
+# Copiar el script de entrada y hacerlo ejecutable.
+COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Exponer el puerto 80
 EXPOSE 80
 
-# Comando para iniciar Nginx y PHP-FPM con Supervisor
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+# Usar el script de entrada para iniciar el servidor.
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
