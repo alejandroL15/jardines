@@ -13,7 +13,6 @@ WORKDIR /var/www/html
 # Instalar Nginx y Supervisor
 RUN apk add --no-cache nginx supervisor
 
-# --- CORRECCIÓN AQUÍ ---
 # Primero, instalar las dependencias del sistema necesarias para las extensiones de PHP
 # Luego, configurar y compilar las extensiones de PHP
 RUN apk add --no-cache \
@@ -44,13 +43,13 @@ EXPOSE 80
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
 ```
 
-### Próximos Pasos
+### Pasos Finales
 
-1.  **Reemplaza el código:** Copia el código de arriba y pégalo en tu archivo `Dockerfile` local, reemplazando todo lo que había antes.
-2.  **Actualiza GitHub:** Guarda el archivo y sube los cambios a tu repositorio.
+1.  **Guarda** el archivo `Dockerfile` limpio.
+2.  **Actualiza GitHub** con el archivo corregido. Puedes usar estos comandos:
     ```bash
     git add Dockerfile
-    git commit -m "Añadir dependencias del sistema para extensiones de PHP"
+    git commit -m "Limpiar Dockerfile de texto extra"
     git push
     
 
