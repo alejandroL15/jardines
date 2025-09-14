@@ -10,9 +10,20 @@ FROM php:8.2-fpm-alpine
 
 WORKDIR /var/www/html
 
-# Instalar Nginx y extensiones de PHP necesarias para Laravel
+# Instalar Nginx y Supervisor
 RUN apk add --no-cache nginx supervisor
-RUN docker-php-ext-install pdo pdo_mysql gd exif pcntl
+
+# --- CORRECCIÓN AQUÍ ---
+# Primero, instalar las dependencias del sistema necesarias para las extensiones de PHP
+# Luego, configurar y compilar las extensiones de PHP
+RUN apk add --no-cache \
+        libpng-dev \
+        jpeg-dev \
+        freetype-dev \
+        libzip-dev \
+        unzip && \
+    docker-php-ext-configure gd --with-freetype --with-jpeg && \
+    docker-php-ext-install -j$(nproc) gd zip pdo pdo_mysql exif pcntl
 
 # Copiar archivos de configuración de Nginx y Supervisor
 COPY docker/nginx.conf /etc/nginx/http.d/default.conf
@@ -31,3 +42,15 @@ EXPOSE 80
 
 # Comando para iniciar Nginx y PHP-FPM con Supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+```
+
+### Próximos Pasos
+
+1.  **Reemplaza el código:** Copia el código de arriba y pégalo en tu archivo `Dockerfile` local, reemplazando todo lo que había antes.
+2.  **Actualiza GitHub:** Guarda el archivo y sube los cambios a tu repositorio.
+    ```bash
+    git add Dockerfile
+    git commit -m "Añadir dependencias del sistema para extensiones de PHP"
+    git push
+    
+
