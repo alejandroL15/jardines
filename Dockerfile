@@ -41,15 +41,3 @@ EXPOSE 80
 
 # Comando para iniciar Nginx y PHP-FPM con Supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-```
-
-### Pasos Finales
-
-1.  **Guarda** el archivo `Dockerfile` limpio.
-2.  **Actualiza GitHub** con el archivo corregido. Puedes usar estos comandos:
-    ```bash
-    git add Dockerfile
-    git commit -m "Limpiar Dockerfile de texto extra"
-    git push
-    
-
