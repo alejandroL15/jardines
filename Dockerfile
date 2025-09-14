@@ -13,8 +13,7 @@ WORKDIR /var/www/html
 # Instalar Nginx y Supervisor
 RUN apk add --no-cache nginx supervisor
 
-# Primero, instalar las dependencias del sistema necesarias para las extensiones de PHP
-# Luego, configurar y compilar las extensiones de PHP
+# Instalar dependencias del sistema y extensiones de PHP
 RUN apk add --no-cache \
         libpng-dev \
         jpeg-dev \
@@ -32,7 +31,13 @@ COPY docker/supervisord.conf /etc/supervisord.conf
 COPY . .
 COPY --from=vendor /app/vendor/ ./vendor/
 
-# Establecer permisos correctos para Laravel
+# --- CORRECCIÓN FINAL AQUÍ ---
+# Generar los archivos de caché de Laravel para producción
+RUN php artisan config:cache
+RUN php artisan route:cache
+RUN php artisan view:cache
+
+# Establecer permisos correctos para Laravel (muy importante que vaya DESPUÉS de los comandos artisan)
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
@@ -41,3 +46,4 @@ EXPOSE 80
 
 # Comando para iniciar Nginx y PHP-FPM con Supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+```
