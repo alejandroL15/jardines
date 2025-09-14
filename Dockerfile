@@ -31,15 +31,24 @@ COPY docker/supervisord.conf /etc/supervisord.conf
 COPY . .
 COPY --from=vendor /app/vendor/ ./vendor/
 
-# --- CORRECCIÓN FINAL AQUÍ ---
-# Generar los archivos de caché de Laravel para producción
+# --- CORRECCIÓN FINAL Y DEFINITIVA ---
+
+# 1. Establecer permisos amplios ANTES de ejecutar Artisan para evitar fallos de escritura.
+RUN chown -R www-data:www-data /var/www/html
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
+# 2. Crear el archivo de log para asegurar que Laravel pueda escribir en él.
+RUN touch /var/www/html/storage/logs/laravel.log
+
+# 3. Generar los archivos de caché de Laravel para producción.
 RUN php artisan config:cache
 RUN php artisan route:cache
 RUN php artisan view:cache
 
-# Establecer permisos correctos para Laravel (muy importante que vaya DESPUÉS de los comandos artisan)
+# 4. Re-establecer los permisos una última vez para asegurar que todo es correcto.
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+
 
 # Exponer el puerto 80
 EXPOSE 80
