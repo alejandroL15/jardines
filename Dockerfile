@@ -46,4 +46,3 @@ EXPOSE 80
 
 # Comando para iniciar Nginx y PHP-FPM con Supervisor
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
-```
