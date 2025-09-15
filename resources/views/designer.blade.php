@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<main id="designer" class="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl card-shadow max-w-5xl mx-auto">
+<main id="designer" class="bg-white/30 backdrop-blur-sm p-6 md:p-8 rounded-2xl card-shadow max-w-5xl mx-auto">
     
     <!-- Error Alert Banner -->
     <div id="error-banner" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative mb-6" role="alert">
@@ -161,14 +161,14 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
             </div>
             <h3 class="text-xl font-semibold text-gray-800">Llámanos</h3>
-            <p class="text-emerald-600 font-medium mt-2 hover:underline"><a href="tel:+51987654321">+51 987 654 321</a></p>
+            <p class="text-emerald-600 font-medium mt-2 hover:underline"><a href="tel:+51987654321">+51 919 630 903</a></p>
         </div>
         <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl card-shadow">
             <div class="flex items-center justify-center h-12 w-12 rounded-full bg-emerald-100 mx-auto mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
             </div>
             <h3 class="text-xl font-semibold text-gray-800">Escríbenos</h3>
-            <p class="text-emerald-600 font-medium mt-2 hover:underline"><a href="mailto:hola@verdeai.com">hola@verdeai.com</a></p>
+            <p class="text-emerald-600 font-medium mt-2 hover:underline"><a href="mailto:hola@verdeai.com">alejandrolr1508999@gmail.com</a></p>
         </div>
         <div class="bg-white/80 backdrop-blur-sm p-6 rounded-xl card-shadow">
             <div class="flex items-center justify-center h-12 w-12 rounded-full bg-emerald-100 mx-auto mb-4">
@@ -177,7 +177,7 @@
                 </svg>
             </div>
             <h3 class="text-xl font-semibold text-gray-800">Síguenos</h3>
-            <p class="text-emerald-600 font-medium mt-2 hover:underline"><a href="#">@VerdeAI_Jardines</a></p>
+            <p class="text-emerald-600 font-medium mt-2 hover:underline"><a href="#">@ardinesAI</a></p>
         </div>
     </div>
 </section>
