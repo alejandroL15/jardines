@@ -25,7 +25,7 @@
             
             <div class="flex items-center justify-center md:justify-start gap-4 mb-4 md:mb-0">
                 
-                <img src="{{ asset('images/logito.png') }}" alt="Logo de JPJardines" class="h-14 w-auto rounded-lg">
+                <img src="{{ asset('images/LogoFi.png') }}" alt="Logo de JPJardines" class="h-14 w-auto rounded-lg">
 
                 <div>
   <h1 class="text-3xl font-bold text-gray-900" style="font-family: 'Playfair Display', serif;">
