@@ -21,7 +21,6 @@
         </span>
     </div>
 
-
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div id="upload-section">
             <h2 class="text-2xl font-semibold mb-4 text-gray-100">1. Sube una foto de tu espacio</h2>
