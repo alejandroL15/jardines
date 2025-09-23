@@ -1,8 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
+
+<section class="max-w-5xl mx-auto mb-6 px-4">
+  <div class="bg-white/60 backdrop-blur-sm rounded-xl px-6 py-4 shadow-md text-center">
+    <h2 class="text-2xl font-semibold text-gray-800">Visualiza tu espacio verde ideal</h2>
+    <p class="text-gray-700 mt-2">
+      Sube una foto de tu jardín, terraza o rincón favorito. Nuestro diseñador AI te ayudará a transformarlo.
+    </p>
+  </div>
+</section>
 <main id="designer" class="bg-white/30 backdrop-blur-sm p-6 md:p-8 rounded-2xl card-shadow max-w-5xl mx-auto">
-    
+
     <!-- Error Alert Banner -->
     <div id="error-banner" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg relative mb-6" role="alert">
         <strong class="font-bold">¡Error!</strong>
@@ -12,9 +21,10 @@
         </span>
     </div>
 
+
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div id="upload-section">
-            <h2 class="text-2xl font-semibold mb-4 text-gray-700">1. Sube una foto de tu espacio</h2>
+            <h2 class="text-2xl font-semibold mb-4 text-gray-100">1. Sube una foto de tu espacio</h2>
             <div id="image-drop-area" class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-pointer hover:border-emerald-500 hover:bg-emerald-50 transition-all duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
@@ -113,9 +123,15 @@
 
 <section id="catalog" class="max-w-5xl mx-auto mt-12 md:mt-20 px-4">
     <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Explora Nuestro Catálogo de Plantas</h2>
-        <p class="text-gray-600 max-w-2xl mx-auto">Una selección de nuestras plantas favoritas para transformar cualquier espacio, interior o exterior.</p>
-    </div>
+  <div class="inline-block bg-white/50 backdrop-blur-md rounded-xl px-6 py-4 shadow-lg">
+    <h2 class="text-3xl font-bold text-gray-800 mb-4">
+      Explora Nuestro Catálogo de Plantas
+    </h2>
+    <p class="text-gray-700 max-w-2xl mx-auto">
+      Una selección de nuestras plantas favoritas para transformar cualquier espacio, interior o exterior.
+    </p>
+  </div>
+</div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div class="bg-white rounded-xl overflow-hidden card-shadow transform hover:-translate-y-2 transition-transform duration-300">
             <img src="https://placehold.co/400x300/A7F3D0/15803D?text=Monstera" alt="Monstera Deliciosa" class="w-full h-48 object-cover">
@@ -177,7 +193,7 @@
                 </svg>
             </div>
             <h3 class="text-xl font-semibold text-gray-800">Síguenos</h3>
-            <p class="text-emerald-600 font-medium mt-2 hover:underline"><a href="#">@ardinesAI</a></p>
+            <p class="text-emerald-600 font-medium mt-2 hover:underline"><a href="#">@Arborea</a></p>
         </div>
     </div>
 </section>
